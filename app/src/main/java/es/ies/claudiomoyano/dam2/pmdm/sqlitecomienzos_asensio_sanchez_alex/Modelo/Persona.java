@@ -8,12 +8,15 @@ public class Persona implements Serializable {
     private String apellidos;
     private int edad;
 
+    private String telefono;
+
     public Persona(){}
 
-    public Persona(String nombre, String apellidos, int edad) {
+    public Persona(String nombre, String apellidos, int edad, String telefono) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
+        this.telefono=telefono;
     }
 
     public int getId() {
@@ -46,5 +49,13 @@ public class Persona implements Serializable {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

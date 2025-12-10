@@ -45,7 +45,7 @@ public class MostrarActivity extends AppCompatActivity implements RecyclerPerson
 
         listaPersonas = personaDAO.listarPersonas();
 
-         adaptadorPersona = new AdaptadorPersona(listaPersonas, this);
+        adaptadorPersona = new AdaptadorPersona(listaPersonas, this);
 
         RecyclerView rvPersonas = findViewById(R.id.rvPersonas);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -73,6 +73,7 @@ public class MostrarActivity extends AppCompatActivity implements RecyclerPerson
                                 personaEditada.setNombre(valoresEditados.getStringExtra("nuevoNombre"));
                                 personaEditada.setApellidos(valoresEditados.getStringExtra("nuevoApellidos"));
                                 personaEditada.setEdad(Integer.parseInt(valoresEditados.getStringExtra("nuevoEdad")));
+                                personaEditada.setTelefono(valoresEditados.getStringExtra("nuevoTelefono"));
 
                                 adaptadorPersona.notifyItemChanged(posicion);
                             }
@@ -119,6 +120,7 @@ public class MostrarActivity extends AppCompatActivity implements RecyclerPerson
             intentEditar.putExtra("nombre", persona.getNombre());
             intentEditar.putExtra("apellidos", persona.getApellidos());
             intentEditar.putExtra("edad", persona.getEdad());
+            intentEditar.putExtra("telefono", persona.getTelefono());
 
             intentResult.launch(intentEditar);
 

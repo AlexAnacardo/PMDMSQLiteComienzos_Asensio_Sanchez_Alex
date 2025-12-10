@@ -10,7 +10,7 @@ import es.ies.claudiomoyano.dam2.pmdm.sqlitecomienzos_asensio_sanchez_alex.Model
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "personas.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 4;
 
     private static DBHelper instance;
 
@@ -34,13 +34,25 @@ public class DBHelper extends SQLiteOpenHelper {
                 PersonaContract.PersonaEntry._ID+" integer primary key autoincrement, "+
                 PersonaContract.PersonaEntry.COLUMN_NOMBRE+" text, "+
                 PersonaContract.PersonaEntry.COLUMN_APELLIDOS+" text, "+
-                PersonaContract.PersonaEntry.COLUMN_EDAD+" integer)"
+                PersonaContract.PersonaEntry.COLUMN_EDAD+" integer, "+
+                PersonaContract.PersonaEntry.COLUMN_TELEFONO+" text)"
         );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exists persona");
-        onCreate(db);
+
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE persona ADD COLUMN telefono TEXT;");
+        }
+
+        if (oldVersion < 3) {
+            // versión 3 no hace nada, solo sirve para forzar actualización sin borrar datos
+        }
+        if (oldVersion < 4) {
+            // versión 3 no hace nada, solo sirve para forzar actualización sin borrar datos
+        }
     }
+
+
 }

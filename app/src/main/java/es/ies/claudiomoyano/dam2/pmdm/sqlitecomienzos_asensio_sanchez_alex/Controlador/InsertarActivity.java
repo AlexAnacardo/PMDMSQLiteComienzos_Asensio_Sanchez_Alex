@@ -29,11 +29,12 @@ public class InsertarActivity extends AppCompatActivity {
         EditText nombre = findViewById(R.id.etNombre);
         EditText apellidos = findViewById(R.id.etApellidos);
         EditText edad = findViewById(R.id.etEdad);
+        EditText telefono = findViewById(R.id.etTelefono);
 
         botonAniadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Persona p = new Persona(nombre.getText().toString(), apellidos.getText().toString(), Integer.parseInt(edad.getText().toString()));
+                Persona p = new Persona(nombre.getText().toString(), apellidos.getText().toString(), Integer.parseInt(edad.getText().toString()), telefono.getText().toString().isEmpty() ? "Sin espec." : telefono.getText().toString());
 
                 if(personaDAO.insertarPersona(p)!=-1){
                     Toast.makeText(v.getContext(), "Insertado", Toast.LENGTH_SHORT).show();

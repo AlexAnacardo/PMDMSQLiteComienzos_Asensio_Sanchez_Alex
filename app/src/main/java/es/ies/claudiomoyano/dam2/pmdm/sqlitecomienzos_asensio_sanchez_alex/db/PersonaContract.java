@@ -11,5 +11,7 @@ public final class PersonaContract {
         public static final String COLUMN_NOMBRE = "nombre";
         public static final String COLUMN_APELLIDOS = "apellidos";
         public static final String COLUMN_EDAD = "edad";
+
+        public static final String COLUMN_TELEFONO = "telefono";
     }
 }

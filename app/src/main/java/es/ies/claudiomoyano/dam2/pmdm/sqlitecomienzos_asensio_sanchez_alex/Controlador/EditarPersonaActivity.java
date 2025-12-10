@@ -33,17 +33,20 @@ public class EditarPersonaActivity extends AppCompatActivity {
         String nombre = intentPadre.getStringExtra("nombre");
         String apellidos = intentPadre.getStringExtra("apellidos");
         int edad = intentPadre.getIntExtra("edad", 0);
+        String telefono = intentPadre.getStringExtra("telefono");
 
 
         EditText etNombre = findViewById(R.id.etNombre);
         EditText etApellidos = findViewById(R.id.etApellidos);
         EditText etEdad = findViewById(R.id.etEdad);
+        EditText etTelefono = findViewById(R.id.etTelefono);
 
 
 
         etNombre.setText(nombre);
         etApellidos.setText(apellidos);
         etEdad.setText(String.valueOf(edad));
+        etTelefono.setText(telefono);
 
 
         Button botonAceptar = findViewById(R.id.botonEditar);
@@ -53,7 +56,7 @@ public class EditarPersonaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                personaDAO.actualizarPersona(id, etNombre.getText().toString(), etApellidos.getText().toString(), Integer.parseInt(etEdad.getText().toString()));
+                personaDAO.actualizarPersona(id, etNombre.getText().toString(), etApellidos.getText().toString(), Integer.parseInt(etEdad.getText().toString()), etTelefono.getText().toString() == "" ? "Sin espec.":etTelefono.getText().toString());
 
                 Intent intent = new Intent();
 
@@ -61,6 +64,7 @@ public class EditarPersonaActivity extends AppCompatActivity {
                 intent.putExtra("nuevoNombre", etNombre.getText().toString());
                 intent.putExtra("nuevoApellidos", etApellidos.getText().toString());
                 intent.putExtra("nuevoEdad", etEdad.getText().toString());
+                intent.putExtra("nuevoTelefono", etTelefono.getText().toString());
 
                 setResult(RESULT_OK, intent);
 

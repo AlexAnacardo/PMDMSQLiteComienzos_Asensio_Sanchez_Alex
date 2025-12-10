@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/etNombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/etNombre"
-        app:layout_constraintBottom_toTopOf="@id/tvApellidos"/>
+        app:layout_constraintBottom_toBottomOf="@id/etNombre"/>
 
     <EditText
         android:id="@+id/etNombre"
@@ -34,10 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Apellidos"
-        app:layout_constraintTop_toBottomOf="@id/tvNombre"
+        app:layout_constraintTop_toTopOf="@id/etApellidos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/etApellidos"
-        app:layout_constraintBottom_toTopOf="@id/tvEdad"/>
+        app:layout_constraintBottom_toBottomOf="@id/etApellidos"/>
 
     <EditText
         android:id="@+id/etApellidos"
@@ -56,10 +56,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edad"
-        app:layout_constraintTop_toBottomOf="@id/tvApellidos"
+        app:layout_constraintTop_toTopOf="@id/etEdad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/etEdad"
-        app:layout_constraintBottom_toTopOf="@id/botonAniadir"/>
+        app:layout_constraintBottom_toBottomOf="@id/etEdad"/>
 
 
     <EditText
@@ -71,6 +71,29 @@
         android:text=""
         app:layout_constraintTop_toBottomOf="@id/tvApellidos"
         app:layout_constraintStart_toEndOf="@id/tvEdad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvTelefono"/>
+
+    <TextView
+        android:id="@+id/tvTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        app:layout_constraintTop_toTopOf="@id/etTelefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etTelefono"
+        app:layout_constraintBottom_toBottomOf="@id/etTelefono"/>
+
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@id/tvEdad"
+        app:layout_constraintStart_toEndOf="@id/tvTelefono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/botonAniadir"/>
 

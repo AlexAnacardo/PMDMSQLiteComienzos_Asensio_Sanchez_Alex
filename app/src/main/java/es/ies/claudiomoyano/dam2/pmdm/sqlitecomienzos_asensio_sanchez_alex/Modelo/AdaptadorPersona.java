@@ -34,6 +34,7 @@ public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.Pers
             holder.nombre.setText(persona.getNombre());
             holder.apellidos.setText(persona.getApellidos());
             holder.edad.setText(String.valueOf(persona.getEdad()));
+            holder.telefono.setText(persona.getTelefono());
         }
 
         @Override
@@ -45,12 +46,14 @@ public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.Pers
             public TextView nombre;
             public TextView apellidos;
             public TextView edad;
+            public TextView telefono;
 
             public PersonaViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nombre = itemView.findViewById(R.id.nombrePersona);
                 apellidos = itemView.findViewById(R.id.apellidosPersona);
                 edad = itemView.findViewById(R.id.edadPersona);
+                telefono = itemView.findViewById(R.id.telefonoPersona);
 
                 // Click normal
                 itemView.setOnClickListener(view -> {

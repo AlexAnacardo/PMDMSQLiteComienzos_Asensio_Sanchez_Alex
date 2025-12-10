@@ -6,74 +6,99 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- Nombre -->
+    <!-- NOMBRE -->
     <TextView
         android:id="@+id/tvNombreEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre"
+        app:layout_constraintTop_toTopOf="@id/etNombre"
+        app:layout_constraintBottom_toBottomOf="@id/etNombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/etNombre"/>
 
     <EditText
         android:id="@+id/etNombre"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:hint="Nombre"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvNombreEditar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvNombreEditar"
-        android:layout_marginStart="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Apellidos -->
+    <!-- APELLIDOS -->
     <TextView
         android:id="@+id/tvApellidosEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Apellidos"
+        app:layout_constraintTop_toTopOf="@id/etApellidos"
+        app:layout_constraintBottom_toBottomOf="@id/etApellidos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNombreEditar"
-        android:layout_marginTop="32dp"/>
+        app:layout_constraintEnd_toStartOf="@id/etApellidos"/>
 
     <EditText
         android:id="@+id/etApellidos"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:hint="Apellidos"
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
         app:layout_constraintStart_toEndOf="@id/tvApellidosEditar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvApellidosEditar"
-        android:layout_marginStart="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Edad -->
+    <!-- EDAD -->
     <TextView
         android:id="@+id/tvEdadEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edad"
+        app:layout_constraintTop_toTopOf="@id/etEdad"
+        app:layout_constraintBottom_toBottomOf="@id/etEdad"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvApellidosEditar"
-        android:layout_marginTop="32dp"/>
+        app:layout_constraintEnd_toStartOf="@id/etEdad"/>
 
     <EditText
         android:id="@+id/etEdad"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:hint="Edad"
+        app:layout_constraintTop_toBottomOf="@id/etApellidos"
         app:layout_constraintStart_toEndOf="@id/tvEdadEditar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvEdadEditar"
-        android:layout_marginStart="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Botón -->
+    <!-- TELÉFONO -->
+    <TextView
+        android:id="@+id/tvTelefonoEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teléfono"
+        app:layout_constraintTop_toTopOf="@id/etTelefono"
+        app:layout_constraintBottom_toBottomOf="@id/etTelefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etTelefono"/>
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Teléfono"
+        app:layout_constraintTop_toBottomOf="@id/etEdad"
+        app:layout_constraintStart_toEndOf="@id/tvTelefonoEditar"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- BOTÓN -->
     <Button
         android:id="@+id/botonEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar"
-        app:layout_constraintTop_toBottomOf="@id/tvEdadEditar"
+        app:layout_constraintTop_toBottomOf="@id/etTelefono"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="48dp"/>
+        android:layout_marginTop="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
