@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Nombre -->
+    <TextView
+        android:id="@+id/tvNombreEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        app:layout_constraintStart_toEndOf="@id/tvNombreEditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvNombreEditar"
+        android:layout_marginStart="8dp"/>
+
+    <!-- Apellidos -->
+    <TextView
+        android:id="@+id/tvApellidosEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellidos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNombreEditar"
+        android:layout_marginTop="32dp"/>
+
+    <EditText
+        android:id="@+id/etApellidos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Apellidos"
+        app:layout_constraintStart_toEndOf="@id/tvApellidosEditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvApellidosEditar"
+        android:layout_marginStart="8dp"/>
+
+    <!-- Edad -->
+    <TextView
+        android:id="@+id/tvEdadEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvApellidosEditar"
+        android:layout_marginTop="32dp"/>
+
+    <EditText
+        android:id="@+id/etEdad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Edad"
+        app:layout_constraintStart_toEndOf="@id/tvEdadEditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvEdadEditar"
+        android:layout_marginStart="8dp"/>
+
+    <!-- Botón -->
+    <Button
+        android:id="@+id/botonEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar"
+        app:layout_constraintTop_toBottomOf="@id/tvEdadEditar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
