@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button botonInsertar = findViewById(R.id.botonInsertar);
         Button botonMostrar = findViewById(R.id.botonMostrar);
+        Button botonBuscar = findViewById(R.id.botonBuscar);
 
         botonInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentMostrar = new Intent(MainActivity.this, MostrarActivity.class);
                 startActivity(intentMostrar);
+            }
+        });
+
+        botonBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBuscar = new Intent(MainActivity.this, BuscarActivity.class);
+                startActivity(intentBuscar);
             }
         });
     }

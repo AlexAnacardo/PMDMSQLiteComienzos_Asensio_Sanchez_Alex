@@ -23,6 +23,7 @@
         <activity android:name=".Controlador.InsertarActivity"></activity>
         <activity android:name=".Controlador.MostrarActivity"></activity>
         <activity android:name=".Controlador.EditarPersonaActivity"></activity>
+        <activity android:name=".Controlador.BuscarActivity"></activity>
     </application>
 
 </manifest>

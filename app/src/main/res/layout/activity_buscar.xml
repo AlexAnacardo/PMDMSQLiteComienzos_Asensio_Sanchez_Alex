@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Edad Mínima -->
+    <TextView
+        android:id="@+id/tvEdadMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad mínima: 0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/seekBarEdadMin"/>
+
+    <SeekBar
+        android:id="@+id/seekBarEdadMin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintTop_toBottomOf="@id/tvEdadMin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvEdadMax"
+        />
+
+    <!-- Edad Máxima -->
+    <TextView
+        android:id="@+id/tvEdadMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad máxima: 100"
+        app:layout_constraintTop_toBottomOf="@id/seekBarEdadMin"
+        app:layout_constraintBottom_toTopOf="@id/seekBarEdadMax"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <SeekBar
+        android:id="@+id/seekBarEdadMax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        app:layout_constraintTop_toBottomOf="@id/tvEdadMax"
+        app:layout_constraintBottom_toTopOf="@id/etNombre"/>
+
+    <!-- Filtro de nombre -->
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce nombre"
+        app:layout_constraintTop_toBottomOf="@id/seekBarEdadMax"
+        app:layout_constraintBottom_toTopOf="@id/rgFiltroNombre"/>
+
+    <RadioGroup
+        android:id="@+id/rgFiltroNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
+        app:layout_constraintBottom_toTopOf="@id/botonBuscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbEmpiezaPor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empieza por"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rbContiene"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contiene"/>
+
+        <RadioButton
+            android:id="@+id/rbBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/botonBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicar filtro"
+        app:layout_constraintTop_toBottomOf="@id/rgFiltroNombre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,10 +40,21 @@ public class MostrarActivity extends AppCompatActivity implements RecyclerPerson
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar);
 
+        Intent intentPadre = getIntent();
 
         personaDAO = new PersonaDAO(this);
 
-        listaPersonas = personaDAO.listarPersonas();
+        if(intentPadre.getBooleanExtra("busqueda", false)){
+            int edadMin = intentPadre.getIntExtra("edadMinima", 0);
+            int edadMax = intentPadre.getIntExtra("edadMaxima", 100);
+            String nombre = intentPadre.getStringExtra("nombre");
+            String filtro = intentPadre.getStringExtra("filtro");
+
+            listaPersonas = personaDAO.buscarPersonas(edadMin, edadMax, nombre, filtro);
+        }else{
+            listaPersonas = personaDAO.listarPersonas();
+        }
+
 
         adaptadorPersona = new AdaptadorPersona(listaPersonas, this);
 

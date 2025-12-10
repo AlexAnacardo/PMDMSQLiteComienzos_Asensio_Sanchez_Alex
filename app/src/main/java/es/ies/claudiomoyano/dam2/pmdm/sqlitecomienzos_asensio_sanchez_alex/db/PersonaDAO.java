@@ -97,4 +97,62 @@ public class PersonaDAO {
         db.close();
         return resultado;
     }
+
+    public ArrayList<Persona> buscarPersonas(int edadMin, int edadMax, String texto, String filtroNombre) {
+        ArrayList<Persona> lista = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String selection = PersonaContract.PersonaEntry.COLUMN_EDAD + " BETWEEN ? AND ?";
+        ArrayList<String> selectionArgsList = new ArrayList<>();
+        selectionArgsList.add(String.valueOf(edadMin));
+        selectionArgsList.add(String.valueOf(edadMax));
+
+        if (texto != null && !texto.isEmpty()) {
+            switch (filtroNombre) {
+                case "empiezaPor":
+                    selection += " AND " + PersonaContract.PersonaEntry.COLUMN_NOMBRE + " LIKE ?";
+                    selectionArgsList.add(texto + "%");
+                    break;
+                case "contiene":
+                    selection += " AND " + PersonaContract.PersonaEntry.COLUMN_NOMBRE + " LIKE ?";
+                    selectionArgsList.add("%" + texto + "%");
+                    break;
+                case "buscar":
+                    selection += " AND " + PersonaContract.PersonaEntry.COLUMN_NOMBRE + " = ?";
+                    selectionArgsList.add(texto);
+                    break;
+            }
+        }
+
+        String[] selectionArgs = selectionArgsList.toArray(new String[0]);
+
+        Cursor cursor = db.query(
+                PersonaContract.PersonaEntry.TABLE_NAME,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(PersonaContract.PersonaEntry._ID));
+                String nombre = cursor.getString(cursor.getColumnIndexOrThrow(PersonaContract.PersonaEntry.COLUMN_NOMBRE));
+                String apellidos = cursor.getString(cursor.getColumnIndexOrThrow(PersonaContract.PersonaEntry.COLUMN_APELLIDOS));
+                int edad = cursor.getInt(cursor.getColumnIndexOrThrow(PersonaContract.PersonaEntry.COLUMN_EDAD));
+                String telefono = cursor.getString(cursor.getColumnIndexOrThrow(PersonaContract.PersonaEntry.COLUMN_TELEFONO));
+
+                Persona p = new Persona(nombre, apellidos, edad, telefono);
+                p.setId(id);
+                lista.add(p);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+        db.close();
+        return lista;
+    }
+
 }
