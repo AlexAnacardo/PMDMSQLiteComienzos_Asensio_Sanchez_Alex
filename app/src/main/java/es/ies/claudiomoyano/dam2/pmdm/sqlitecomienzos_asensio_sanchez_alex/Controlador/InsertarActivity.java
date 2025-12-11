@@ -1,6 +1,7 @@
 package es.ies.claudiomoyano.dam2.pmdm.sqlitecomienzos_asensio_sanchez_alex.Controlador;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -34,13 +35,20 @@ public class InsertarActivity extends AppCompatActivity {
         botonAniadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Persona p = new Persona(nombre.getText().toString(), apellidos.getText().toString(), Integer.parseInt(edad.getText().toString()), telefono.getText().toString().isEmpty() ? "Sin espec." : telefono.getText().toString());
+                if(!nombre.getText().toString().equals("") && !apellidos.getText().toString().equals("") && !edad.getText().toString().equals("")){
+                    Persona p = new Persona(nombre.getText().toString(), apellidos.getText().toString(), Integer.parseInt(edad.getText().toString()), telefono.getText().toString().isEmpty() ? "Sin espec." : telefono.getText().toString());
 
-                if(personaDAO.insertarPersona(p)!=-1){
-                    Toast.makeText(v.getContext(), "Insertado", Toast.LENGTH_SHORT).show();
+                    if(personaDAO.insertarPersona(p)!=-1){
+                        Toast.makeText(v.getContext(), "Insertado", Toast.LENGTH_SHORT).show();
+                        Intent intentFinalizarInsertar = new Intent(InsertarActivity.this, MainActivity.class);
+                        startActivity(intentFinalizarInsertar);
+                    }
+                    else{
+                        Toast.makeText(v.getContext(), "Error al insertar", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else{
-                    Toast.makeText(v.getContext(), "Error al insertar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Los campos: Nombre, apellidos y edad son obligatorios", Toast.LENGTH_SHORT).show();
                 }
             }
         });
